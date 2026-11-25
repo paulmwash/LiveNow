@@ -1,0 +1,16 @@
+{% extends 'people/base.html' %}
+
+{% block content %}
+<ul>
+	{% for topic in topics %}
+	<li>
+		<a href="{% url 'people:topic' topic.id %}">
+			{{ topic.text }}</a>
+	</li>
+	{% empty %}
+	<li>No topics have been added yet </li>
+	{% endfor %}
+
+</ul>
+
+{% endblock content %}

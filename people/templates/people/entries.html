@@ -1,0 +1,12 @@
+{% extends  'people/base.html' %}
+{% block content %}
+<ul>
+{% for entrie in  entries %}
+
+	 <li>{{entrie.text}}</li>
+	 {% empty %}
+	 <li>No item.</li>
+
+	 {%  endfor %}
+ </ul>
+ {% endblock content %}
