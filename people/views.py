@@ -17,6 +17,6 @@ def topics(request):
 def topic(request,topic_id):
     """Show individual topic fr all its entries"""
     topics = Topic.objects.get(id=topic_id)
-    entries = topic.entry_set.order_by('-date_added')
+    entries = topics.entry_set.order_by('-date_added')
     context = {'topics': topics, 'entries': entries}
     return render (request,'people/topic.html',context)
