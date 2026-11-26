@@ -102,7 +102,7 @@ dploot==3.1.2
 dsinternals==1.2.4
 dunamai==1.26.1
 ecdsa==0.19.2
-elastic-transport==9.4.2
+elastic-transport==9.4.3
 elasticsearch==9.5.1
 email-validator==2.3.0
 ephem==4.2.1
@@ -349,7 +349,7 @@ PyQt6==6.12.0
 PyQt6_sip==13.13.0
 pyqtgraph==0.14.0
 pyramid==2.0.2
-pyscard==2.3.1
+pyscard==2.3.2
 pyserial==3.5
 PySide6==6.11.2
 pysmbc==1.0.25.1
@@ -695,7 +695,7 @@ websocket-client==1.9.0
 websockets==17.1
 Werkzeug==3.1.9
 wfuzz==3.1.0
-wheel==0.47.0
+wheel==0.48.0
 winacl==0.1.9
 wrapt==2.3.0
 wsaccel==0.6.3
