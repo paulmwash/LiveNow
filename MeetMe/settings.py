@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,16 +23,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','unsafe-local-dev-key-change-me')
+
+load_dotenv()
+
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-load_dotenv()
-DEBUG = os.getenv('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS')
+DEBUG = os.getenv('DJANGO_DEBUG','False').lower() == 'true'
 
+raw_hosts = os.getenv('DJANGO_ALLOWED_HOSTS')
+raw_hosts = os.getenv('DJANGO_ALLOWED_HOSTS', '')
+ALLOWED_HOSTS = [host.strip() for host in raw_hosts.split(',') if host.strip()]
 
 # Application definition
 
