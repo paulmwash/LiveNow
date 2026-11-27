@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import  Topic, Entry
-from .forms import TopicForm
+from .forms import TopicForm, EntryForm
 # Create your views here.
 
 
@@ -31,7 +31,7 @@ def new_topic(request):
     else:
         # POST data submitted; process data.
         form = TopicForm(data=request.POST)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             return redirect ('people:topics')
 
@@ -51,7 +51,7 @@ def new_entry(request,topic_id):
     else:
         # POST data submitted; process data
         form = EntryForm(data=request.POST)
-        if form.is_valid:
+        if form.is_valid():
             new_entry = form.save(commit=False)
             new_entry.topic = topic
             new_entry.save()
